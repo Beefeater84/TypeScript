@@ -1,0 +1,4 @@
+/.idea/*
+/advanced/node_modules
+/advanced/dist
+/react-ts/node_modules
