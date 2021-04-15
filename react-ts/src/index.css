@@ -20,3 +20,22 @@ code {
 .mt-2{
   margin-top: 2rem;
 }
+
+.todo{
+  margin-bottom: 1rem;
+}
+
+.todo.completed span{
+  text-decoration: line-through;
+}
+
+.todo label{
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 1rem;
+  background: #f3f3f3;
+  width: 100%;
+}
+
