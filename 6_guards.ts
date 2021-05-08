@@ -46,3 +46,7 @@ function setAlert(type: AlertTypes){
 setAlert('warning')
 // setAlert('default') - не будет работать
 
+
+
+
+

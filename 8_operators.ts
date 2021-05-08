@@ -8,6 +8,8 @@ interface User {
     age: number
 }
 
+// keyof - проходимся по ключам объекта
+
 type UserKeys = keyof User // Теперь у нас тут есть 3 типа: name / email / age
 const key1: UserKeys = "name"
 // const key2:UserKeys = "registratedDate" - не будет работать, потому что его нет в списке User
