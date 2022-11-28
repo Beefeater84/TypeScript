@@ -4,6 +4,17 @@ import {ITodo} from "../interfaces";
 // Пример свойств не с interface, a с type
 type ToDoListProps = {
     todos: ITodo[],
+
+    // Еще один вариант описания массив объектов
+    // todos: {
+    //     title: string,
+    //     id: number,
+    //     completed: boolean
+    // }[],
+
+    // When we need to limit the values (or use ENUM)
+    // status: 'error' | 'loading' | 'success',
+
     // 2 способа описания функции - стрелочная и метод
     // onRemove(id: number): void
     // onToggle: (id: number) => void
@@ -11,6 +22,10 @@ type ToDoListProps = {
     onRemove(id: number): void
     onToggle(id: number): void
 }
+
+// Второй вариант обозначить тип
+// export const ToDoList = (props: ToDoListProps) => {
+
 
 export const ToDoList: React.FC<ToDoListProps> = ({todos, onRemove, onToggle}) => {
 
