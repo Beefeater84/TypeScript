@@ -8,6 +8,11 @@ interface TodoFormProps{
 
 //
 
+
+// Destructuring props
+// export const ToDoFormRef = ({addTodo}: TodoFormProps) => {
+
+
 export const ToDoFormRef: React.FC<TodoFormProps> = props => {
 
     const link = useRef<HTMLInputElement>(null)
