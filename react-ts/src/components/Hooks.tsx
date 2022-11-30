@@ -7,8 +7,9 @@ type AuthUserT = {
 
 const HooksTypes = () => {
 
-    
     // const [user, setUser] = useState<null | AuthUserT>(null)
+
+    // Assertion - {} as AuthUserT
     const [user, setUser] = useState<AuthUserT>({} as AuthUserT)
 
     const handleLogin = () => {
@@ -27,3 +28,5 @@ const HooksTypes = () => {
         </>
     )
 }
+
+
