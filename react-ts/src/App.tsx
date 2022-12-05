@@ -4,6 +4,9 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import {Navbar} from "./components/Navbar";
 import {TodoPages} from "./pages/TodoPages";
 import {AboutPage} from "./pages/AboutPage";
+import {ThemeContextProvider} from "./components/UseContext/ThemeContext";
+import {Box} from "./components/UseContext/Box";
+import {User} from "./components/UserUseContext/User";
 
 
 const App: React.FC = () => {
@@ -12,10 +15,15 @@ const App: React.FC = () => {
         <BrowserRouter>
             <Navbar/>
             <div className="container">
-                <Switch>
-                    <Route component={TodoPages} path="/" exact/>
-                    <Route component={AboutPage} path="/about"/>
-                </Switch>
+                <ThemeContextProvider>
+                    <Box />
+                    <Switch>
+                        <Route component={TodoPages} path="/" exact/>
+                        <Route component={AboutPage} path="/about"/>
+                        <Route component={Box} path="/boxcontext"/>
+                        <Route component={User} path="/userContext"/>
+                    </Switch>
+                </ThemeContextProvider>
             </div>
         </BrowserRouter>
     );

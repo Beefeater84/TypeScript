@@ -1,4 +1,6 @@
-import React, {useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
+import {Simulate} from "react-dom/test-utils";
+import input = Simulate.input;
 
 type AuthUserT = {
     name: string,
@@ -29,4 +31,46 @@ const HooksTypes = () => {
     )
 }
 
+
+const InputEl = () => {
+
+    // null! - means, the element do exist and we can write input.current.focus() instead of inout?.current.focus()
+    const input = useRef<HTMLInputElement>(null!)
+
+    useEffect(() => {
+        input.current.focus()
+    }, [])
+
+    return (
+        <input type="text" ref={input}/>
+    )
+}
+
+
+const Timer = () => {
+    const [timer, setTimer] = useState(0)
+    const intervalRef = useRef<number | null>(null)
+
+    const stopTimer = () => {
+        if (intervalRef.current) window.clearInterval(intervalRef.current)
+    }
+
+    useEffect(() => {
+        intervalRef.current = window.setInterval(() => {
+            setTimer(timer => timer + 1)
+        }, 1000)
+
+        return () => {
+            stopTimer()
+        }
+    }, [])
+
+    return (
+        <div>
+            Timer - {timer}
+            <button onClick={() => stopTimer()}></button>
+        </div>
+    )
+
+}
 
