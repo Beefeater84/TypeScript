@@ -79,4 +79,53 @@ class Clock implements IClock {
     }
 }
 
+// ===================================================================
+
+interface User {
+    name: string,
+    age: number,
+    hobbies?: string[]
+}
+
+interface Address {
+    city: string,
+    street: string,
+}
+
+interface UserWithAddress extends User, Address {
+    date: Date
+}
+
+const person: UserWithAddress = {
+    name: 'Vladilen',
+    age: 26,
+    city: 'Kiev',
+    street: 'Lenina',
+    date: new Date()
+}
+
+// Как организовать тип Hash Map
+
+// У объекта ключами могут выступать id пользователей, а значениями - сами пользователи
+// [id: string]: UserWithAddress - динамический ключ
+
+interface UserMap {
+    [id: string]: UserWithAddress
+}
+
+const userMap: UserMap = {
+    1: person,
+    2: person,
+    3: person
+}
+
+// Другой синтаксис, называется приведение типов
+const user2Map = {
+    1: person,
+    2: person,
+    3: person
+} as UserMap
+
+export {}
+
 

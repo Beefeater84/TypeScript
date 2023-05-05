@@ -2,8 +2,15 @@
 // это ситуации, когда мы четко определяем какие типы пападают в функцию (точнее несколько) и как они должны обрабатываться
 
 // Используем typeof
+
+
+function isNumber(val: number | string): val is number {
+    // Получается что функция вернет нам boolean, но TS понимает, что мы проверяем тип
+    // и если мы возвращаем true, то это значит, что val - это number
+    return typeof val === "number"
+}
 function getPassword(password: number | string) {
-    if (typeof password === "number") {
+    if (isNumber(password)) {
         return password.toFixed(0)
     }
     return password.trim()
