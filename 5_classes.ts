@@ -26,6 +26,65 @@ class Car2 {
 }
 
 // ========================================================================
+
+class User {
+    name: string;
+    birthDate?: Date;
+    hobbies: string[] = [];
+
+    constructor(name: string, birthDate: Date, hobbies: string[] = []) {
+        this.name = name;
+        this.birthDate = birthDate;
+        this.hobbies = hobbies;
+    }
+
+    getHobbies = () => {
+        console.log(this.hobbies)
+    }
+
+
+    setHobbies(hobby: string): this {
+        this.hobbies.push(hobby)
+        // Это нужно, чтобы можно было вызывать методы цепочкой
+        return this
+    }
+}
+
+const user = new User('John', new Date('1990-01-01'));
+
+user.setHobbies('Football').setHobbies('Basketball').getHobbies()
+
+// ========================================================================
+
+// Getter Setter
+
+class Pet {
+    breed: string;
+    _name: string;
+
+    constructor(name: string, breed: string) {
+        this._name = name;
+        this.breed = breed;
+    }
+
+    get getName(): string {
+        return this.name;
+    }
+
+    set setName(name: string) {
+        this._name = name;
+    }
+}
+
+const pet = new Pet('Molly', 'Labrador');
+
+console.log(pet.getName); // Molly
+pet.setName = 'Molly Junior';
+console.log(pet.getName); // Molly Junior
+
+
+
+// ========================================================================
 // Модификаторы (protected, public, private)
 
 class Animal {
@@ -74,3 +133,5 @@ class AppComponent extends Component {
         return 'I am extended from Component';
     }
 }
+
+export {}

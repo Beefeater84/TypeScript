@@ -1,19 +1,30 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["es2015", "dom"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "target": "ES2020", // в какую версию js мы хотим скомпилировать наш код
+    "lib": ["ES2020", "DOM"], // какие библиотеки мы хотим использовать
+
+    "allowJs": false, // позволяет использовать js файлы в проекте
+    "checkJs": false, // позволяет проверять js файлы в проекте
+
+    "skipLibCheck": true, // позволяет пропустить проверку библиотек
+    "esModuleInterop": true, // позволяет использовать импорты в стиле es6
+    "allowSyntheticDefaultImports": true, // позволяет использовать импорты в стиле es6
+    "strict": true, // позволяет использовать строгую типизацию
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "esnext", // какой модуль мы хотим использовать
+    "moduleResolution": "node", // какой модуль мы хотим использовать
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "baseUrl": ".", // позволяет указать путь к папке, где лежат все файлы
+    "paths": {
+        "@/*": ["*"] // позволяет создавать алиасы для путей
+    },
+    "resolveJoinModule": true, // позволяет использовать JSON файлы
   },
-  "files": [] // какие файлы нам необходимо компилировать
+  "files": ["app.ts"], // какие файлы нам необходимо компилировать
+  "include": ["src/**/*.ts"], // какие файлы нам необходимо компилировать
+  "exclude": ["node_modules"], // какие файлы нам необходимо исключить из компиляции, node_modules - обычно прописан по-умолчанию
+  "extends": "./tsconfig.json" // позволяет наследовать настройки из другого файла
 }
