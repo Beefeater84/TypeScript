@@ -10,7 +10,7 @@ class Car {
     }
 
     // Определяем методы
-    showModel(id: number){
+    showModel(id: number) {
         return `Id №${id} is ${this.model} and has ${this.numberOfWheels} wheels`
     }
 }
@@ -22,7 +22,8 @@ const Subaru = new Car('Subaru')
 // Более котортакая запись, когда мы поля определяем прямо в конструкторе
 class Car2 {
     // TypeScript сам создат поле model
-    constructor(readonly model: string) { }
+    constructor(readonly model: string) {
+    }
 }
 
 // ========================================================================
@@ -87,6 +88,7 @@ console.log(pet.getName); // Molly Junior
 
 class Furniture {
     color: string
+
     constructor(color: string) {
         this.color = color
     }
@@ -123,6 +125,7 @@ console.log(chair.hasLegs()) // true
 
 class Book {
     title: string;
+
     constructor(title: string) {
         this.title = title
     }
@@ -131,7 +134,6 @@ class Book {
         // return this.title - не работает, потому что this в статическом методе указывает на сам класс, а не на экземпляр класса
     }
 }
-
 
 
 class Animal {
@@ -145,9 +147,10 @@ class Animal {
     // JS нативный private не поддерживает, но TS поддерживает
     #weight: number = 300
 
-    private go(){
+    private go() {
         console.log('go')
     }
+
     // Предположим нам надо сделать id, который бы могли видеть во всех наследуемых классах, но не могли его поменять,
     // А также чтобы он был недоступен вне класса
 
@@ -159,7 +162,7 @@ class Animal {
 
 }
 
-class Cat extends Animal{
+class Cat extends Animal {
     // тут будут работать public и protected методы из Animal
 
     public setVoice(voice: string): void {
@@ -181,6 +184,7 @@ cat.setVoice('Mau')
 
 abstract class Component {
     abstract render(): void
+
     abstract info(): string
 }
 
@@ -217,11 +221,13 @@ const Lenovo = new Computer('Lenovo', '16GB')
 
 interface Lifecycle {
     onDestroy(): void
+
     onMount(): void
 }
 
 interface ComponentI {
     isChanged: boolean
+
     onChange(): void
 }
 
@@ -241,5 +247,20 @@ class Component2 implements Lifecycle, ComponentI {
     }
 
 }
+
+// ========================================================================
+
+// Мы можем получить набор параметров, которые принимает конструктор класса, и передать их в другой класс
+// Это называется конструктором проброса
+
+class User3 {
+    constructor(public name: string, public age: number, private _id: number) {
+    }
+
+}
+
+// При этом, если параметр не обязательный, то нужно обернуть его в Required
+type User3Parameters = ConstructorParameters<typeof User3>
+type User3FirstParameter = ConstructorParameters<typeof User3>[0]
 
 export {}

@@ -82,3 +82,18 @@ console.log('Two param: ', position(10, 10))
 //     return car.model === '3 series'
 // }
 
+// =====
+// =========================
+
+function logger(data: string[], num: number): boolean{
+    console.log(data)
+    return false
+}
+
+// Нам нужно получить создать тип данных их параметров этой функции
+// Нам нужно получить тип данных, которые возвращает эта функция
+
+type LoggerParameters = Parameters<typeof logger> // получаем тип данных параметров функции
+type LoggerFirstParameter = Parameters<typeof logger>[0] // получаем тип данных параметров функции
+type LoggerReturnType = ReturnType<typeof logger> // получаем тип данных, который возвращает функция
+
