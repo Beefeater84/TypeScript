@@ -5,7 +5,8 @@
 
 
 function isNumber(val: number | string): val is number {
-    // Получается что функция вернет нам boolean, но TS понимает, что мы проверяем тип
+    // Typeguard фукнкция должна вернуь true / false
+    // val is number - благодаря is ts понимает что мы проверяем параметр. Вместо number может быть сложный type
     // и если мы возвращаем true, то это значит, что val - это number
     return typeof val === "number"
 }
