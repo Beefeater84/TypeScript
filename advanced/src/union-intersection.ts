@@ -9,6 +9,7 @@ type Intersection = A & B;
 const user_name = { name: "Name" };
 const user_age = { age: 42 };
 const user_name_age = { name: "Jane", age: 42 };
+const user_name_age_and_something = { name: "Jane", age: 42, something: "extra" };
 
 // Union - это как ИЛИ
 let union: Union;
@@ -16,11 +17,13 @@ union = user_name;
 union = user_age;
 // Даже это работает, потому что одно из условий соблюдено
 union = user_name_age;
+union = user_name_age_and_something;
 
 // Intersection - это пересечение,
 let intersection: Intersection;
 intersection = user_name; // Error
 intersection = user_age; // Error
+
 // Срабатывает только когда оба типа есть в объекте
 intersection = user_name_age;
 

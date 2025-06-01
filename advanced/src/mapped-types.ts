@@ -74,9 +74,12 @@ type Product = {
   price: number;
   description: string;
 };
+
 /* 
-Создайте тип PartialProduct, используя Mapped Types, который делает все свойства Product необязательными.
-Создайте тип ReadonlyProduct, используя Mapped Types, который делает все свойства Product доступными только для чтения.
+
+Создать кастомный Omit
+Создать кастомный Pick
+Создать кастомный ReturnType
 Создайте тип NullableProduct, который делает все свойства Product допускающими значение null (т.е. string | null, number | null и т.д.).
 
 

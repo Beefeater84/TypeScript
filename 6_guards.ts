@@ -56,6 +56,8 @@ function setAlert(type: AlertTypes) {
 setAlert("warning");
 // setAlert('default') - не будет работать
 
+
+
 // Boolean versus !! Operator
 
 function use(payload: { value: string }) {
