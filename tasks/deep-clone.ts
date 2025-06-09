@@ -13,6 +13,10 @@ function deepClone<T>(value: T): T {
     return cloneArray(value) as T;
   }
 
+  if (typeof value === "object") {
+    return cloneObj(value) as T;
+  }
+
   console.error("Shouldn't happen", value);
   return value;
 }
@@ -26,9 +30,15 @@ function cloneArray<F>(value: F[]): F[] {
   return result;
 }
 
-const arr = [1, 2, ["string"], 3, "Abba"];
-const clonnedArr = deepClone(arr);
-clonnedArr[2][0] = "CHANGED";
+function cloneObj<O extends Record<any, any>>(value: O): O {
+  const result: O = {};
+
+  for (const key in value) {
+    result[key] = deepClone(value[key]);
+  }
+
+  return result;
+}
 
 console.log(deepClone("Hello"));
 console.log(deepClone(3));
@@ -36,3 +46,9 @@ console.log(deepClone(undefined));
 console.log(deepClone(null));
 console.log(deepClone(false));
 console.log(deepClone([1, 2, "string", 3, "Abba"]));
+console.log(
+  deepClone({
+    key: "key",
+    "key 2": [1, 2, "str"],
+  })
+);
