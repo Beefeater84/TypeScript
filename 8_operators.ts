@@ -42,3 +42,6 @@ function getSomeData(): Promise<string> {
 
 // Возвращает тип, который вернет getSomeData
 type GetViewByIdResponse = Awaited<ReturnType<typeof getSomeData>>;
+
+// task https://youtu.be/-DQpxq3-oaU?si=-vs7I656YFRShIIH
+//  https://github.com/type-challenges/type-challenges/blob/main/questions/00189-easy-awaited/README.md
