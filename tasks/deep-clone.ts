@@ -30,8 +30,8 @@ function cloneArray<F>(value: F[]): F[] {
   return result;
 }
 
-function cloneObj<O extends Record<any, any>>(value: O): O {
-  const result: O = {};
+function cloneObj<O extends object>(value: O): O {
+  const result: O = {} as O;
 
   for (const key in value) {
     result[key] = deepClone(value[key]);
